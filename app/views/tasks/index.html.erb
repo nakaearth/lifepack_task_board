@@ -1,0 +1,32 @@
+  <%= render 'menu' %>
+<br>
+<div id="message_info"></div>
+
+<table id="task_board" class="board">
+  <tr>
+  <td id="todoCaption" class="todo">
+    まだ未着手
+    <div id="todo_board" class="boardCaption">
+    <%=render @todo_tasks %>
+    </div>
+  </td>
+  <%= drop_receiving_element("todoCaption", :url =>{:action => 'change_status_todo'}, :loading => visual_effect(:highlight)) %>
+  <td id="doingCaption" class="doing">
+    取り組み中
+    <div id="doing_board" class="boardCaption">
+    <%=render @doing_tasks %>
+    </div>
+  </td>
+  <%= drop_receiving_element("doingCaption", :url =>{ :action => 'change_status_doing'},:loading => visual_effect(:highlight)) %>
+
+  <td id="doneCaption" class="done">
+    完了
+    <div id="done_board" class="boardCaption">
+    <%=render @done_tasks %>
+    </div>
+  </td>
+  <%= drop_receiving_element("doneCaption", :url => { :action => "change_status_done" }, :loading => visual_effect(:highlight)) %>
+  </tr>
+</table>
+
+

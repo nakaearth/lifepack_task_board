@@ -1,0 +1,42 @@
+□rails３の仕様はは、
+http://guides.rubyonrails.org/
+を参照
+
+
+
+■f.～の場合
+f.check_box
+check_box(オブジェクト名, options = {}, チェック時の値, 未チェック時の値)
+<%= f.check_box(:object_name,{:checked=>true},"チェック時の値","未チェック時の値") %>
+
+f.radio_button
+radio_button(オブジェクト名,値, options = {})
+<%= f.radio_button:object_name,"値",{:checked=>true} %>
+f.～の場合チェックだけのパラメーターはないため、オプション{}内で:checked=>"checked"を指定する。
+
+{:checked=>true}が正しい指定の仕方のようだが、
+{:checked=>"checked"}としてもチェックはされる。
+しかし、明示的に未チェックにしておきたい場合に不都合があるので、{:checked=>true}とした方がいいと思う。
+
+■Link_toの書き方
+ <%= link_to 'select', [:show, item],:method=> :put %> |
+    <%= link_to 'select', [:select_item, item],:method=> :put %> |
+  <%= link_to 'select', [:select_item,:shops, item],:method=> :put %> |
+
+./config/route.rbへの追加
+ resources :items, :only =>[:index,:new, :show, :create,:edit, :update, :destory] do
+    put :select_item, :on => :member
+    put :select_high_price, :on => :collection
+  end
+  resources :shops , :only =>[:index, :show] do
+    put :select_item, :on => :member
+  end
+
+※参考
+http://www.oiax.jp/rails/rails3/authentication1.html
+
+■AJAX
+http://www.daokaous.com/rails3.0.0_doc/classes/ActionView/Helpers/ScriptaculousHelper.html#M002762
+
+□Memcached対応
+http://www.banana-systems.com/2010/09/rails3_memcached/

@@ -1,0 +1,21 @@
+<div　id="loginInfo" class="loginInfo_menu">
+      [<%=@login_user.name %>]さん、こんにちは。&nbsp;&nbsp;|
+</div>
+<table id="headerBoard">
+  <tr>
+	<td class="menu_text">
+	    　&nbsp;
+	     <%= link_to 'TODO項目を表示' ,:action=>'index' %>
+         &nbsp;&nbsp;
+        &nbsp;&nbsp; |
+        <%= link_to '新規タスク追加', new_task_path %>
+         &nbsp;&nbsp; |
+        &nbsp;&nbsp;
+	    <%= link_to '過去の振り返り', :action =>'show_calendar' %>
+        &nbsp;&nbsp; |
+	</td><td  class="menu_text2">
+      &nbsp;&nbsp;
+	  <%= link_to 'ログアウト',:controller=>'sessions', :action => 'destroy' %>
+    </td>
+  </tr>
+</table>

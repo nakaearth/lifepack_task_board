@@ -1,0 +1,25 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>概要:</b>
+  <%= @task.title %>
+</p>
+
+<p>
+  <b>詳細:</b>
+  <%= @task.description %>
+</p>
+
+<p>
+  <b>重要度:</b>
+  <%= @task.priority %>
+</p>
+
+<p>
+  <b>進捗:</b>
+  <%=status_value(@task.status) %>
+</p>
+
+
+<%= link_to 'Edit', edit_task_path(@task) %> |
+<%= link_to 'Back', tasks_path %>

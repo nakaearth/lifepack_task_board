@@ -1,0 +1,37 @@
+<%= form_for(@task) do |f| %>
+  <% if @task.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@task.errors.count, "error") %> prohibited this task from being saved:</h2>
+
+      <ul>
+      <% @task.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :title, '概要' %>：<br />
+    <%= f.text_field :title %>
+  </div>
+  <div class="field">
+    <%= f.label :description ,'詳細'%>：<br />
+    <%= f.text_area :description %>
+  </div>
+  <div class="field">
+    <%= f.label :priority ,'優先順位'%><br />
+    いつでも:<%= f.radio_button :priority,"1" %>|
+    やれれば:<%= f.radio_button :priority,"2" %>|
+    なるべく早く:<%= f.radio_button :priority,"3" %>
+  </div>
+  <div class="field">
+    <%= f.label :status ,'進捗'%><br />
+    未着手:<%= f.radio_button :status,"1" %>|
+    今やってる:<%= f.radio_button :status,"2" %>|
+    完了:<%= f.radio_button :status,"3" %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
