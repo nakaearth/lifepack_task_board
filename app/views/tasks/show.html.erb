@@ -1,25 +1,48 @@
-<p id="notice"><%= notice %></p>
+<%
+if @task.priority == 1
+  @priority_value = "いつでも"
+elsif @task.priority == 2
+  @priority_value = "やれれば"
+elsif @task.priority == 3
+  @priority_value = "なるべく早く"
+else
+  @priority_value = "1"
+end
 
+if @task.status==1
+   @status_value= "未着手"
+elsif @task.status==2
+   @status_values= "今やっている"
+elsif @task.status==3
+   @status_value="完了"
+else
+   @status_values= "ERROR"
+end
+
+%>
+
+<p id="notice"><%= notice %></p>
+ <div id="<%=@task.id %>" class="task2">
 <p>
-  <b>Title:</b>
+  <b>概要:</b>
   <%= @task.title %>
 </p>
 
 <p>
-  <b>Description:</b>
+  <b>詳細:</b>
   <%= @task.description %>
 </p>
 
 <p>
-  <b>Priority:</b>
-  <%= @task.priority %>
+  <b>優先順位:</b>
+  <%= @priority_value %>
 </p>
 
 <p>
-  <b>Status:</b>
-  <%= @task.status %>
+  <b>進捗:</b>
+  <%= @status_value %>
 </p>
+ </div><br>
 
-
-<%= link_to 'Edit', edit_task_path(@task) %> |
-<%= link_to 'Back', tasks_path %>
+<%= link_to '修正', edit_task_path(@task) %> |
+<%= link_to 'タスク一覧へ', tasks_path %>

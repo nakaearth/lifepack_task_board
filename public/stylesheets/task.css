@@ -109,6 +109,15 @@
 	float: left;
 	cursor: move;
 }
+.task2 {
+	background-color: #FFFFDB;
+    border: 1px solid #333333;
+	font-size: 10pt;
+	width: 400px;
+	margin: 3px;
+	z-index: 4;
+	cursor: move;
+}
 
 .task_priority_bar_1 {
 	text-align: right;

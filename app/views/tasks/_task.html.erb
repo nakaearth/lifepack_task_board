@@ -11,14 +11,15 @@ end
 %>
   <div id="<%=task.id %>" class="task">
    <div id="task_menu" class="task_priority_bar_<%= @menu_num%>">
-     <%= link_to '詳細をみる', [:show_task_detail, task], :method=>:put %>
      |<%= link_to '編集する', edit_task_path(task) %>
      |<%= link_to '削除する', [:delete_task,task], :confirm => '本当に削除しますか？', :remote=>true,:method => :delete %>
    </div>
     概要：<%= task.title %>
     <br>
-    作成日：<%= task.created_at.strftime("%Y/%m/%d %H:%M") %><br>
-    更新日：<%= task.updated_at.strftime("%Y/%m/%d %H:%M") %>
+    詳細：<%= task.description %>
+    <br>
+    作成日：<%= task.created_at.strftime("%Y/%m/%d") %><br>
+    更新日：<%= task.updated_at.strftime("%Y/%m/%d") %>
     <%= draggable_element("#{task.id}", :revert =>false) %>
   </div>
   
