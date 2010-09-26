@@ -6,14 +6,12 @@ class TasksController < ApplicationController
     if session[:login_user] == nil
       redirect_to :controller=>'sessions'
     end
-    @todo_tasks = Task.todo.latest
-    @doing_tasks = Task.doing.latest
-    @done_tasks = Task.done.latest
     @login_user = session[:login_user]
-    #respond_to do |format|
-    #  format.html # index.html.erb
-    #  format.xml  { render :xml => @tasks }
-    #end
+    #@todo_tasks = Task.where(["user_id=?",@login_user.id]).todo.latest
+    @todo_tasks = Task.where(["user_id=?",@login_user]).todo.latest
+    @doing_tasks = Task.where(["user_id=?",@login_user]).doing.latest
+    @done_tasks = Task.where(["user_id=?",@login_user]).done.latest
+   
   end
 
   def change_status_todo
@@ -94,7 +92,7 @@ class TasksController < ApplicationController
   # POST /tasks.xml
   def create
     @task = Task.new(params[:task])
-    
+    @task.user_id = session[:login_user]
     respond_to do |format|
       if @task.save
         format.html { redirect_to(@task, :notice => 'Task was successfully created.') }
