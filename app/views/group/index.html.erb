@@ -1,0 +1,26 @@
+<div class="sub_header_info">グループ一覧</div>
+
+<table>
+  <tr>
+    <th>グループ名</th>
+    <th>グループ説明</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @groups.each do |group| %>
+  <tr>
+    <td><%= group.name %></td>
+    <td><%= group.descritpion %></td>
+    <td><%= link_to 'Show', group %></td>
+    <td><%= link_to 'Edit', edit_group_path(group) %></td>
+    <td><%= link_to 'Destroy', group, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to '新規グループ', new_group_path %>|
+<%= link_to 'ユーザ情報設定へ',  :controller =>'users', :action => 'show' %>
