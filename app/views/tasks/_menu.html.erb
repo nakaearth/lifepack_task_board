@@ -1,5 +1,15 @@
 <div id="loginInfo" class="loginInfo_menu">
-      [<%=@login_user.name %>]さん、こんにちは。&nbsp;&nbsp;
+      [<%=@login_user.name %>]さん、こんにちは。<br>
+      <table>
+        <tr>
+          <td class="menu_text">
+            &nbsp;
+	        <%= link_to 'プロフィール設定' ,:controller=>'users',:action=>'show',:id=>@login_user.id %>
+            &nbsp;&nbsp;|
+            &nbsp;&nbsp;
+	        <%= link_to 'ログアウト',:controller=>'sessions', :action => 'destroy' %>
+        </td></tr>
+      </table>
 </div>
 <table id="headerBoard">
   <tr>
