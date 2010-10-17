@@ -11,8 +11,9 @@
     </div>
   <% end %>
 
+<div class="task_form">
   <div class="field">
-    <%= f.label :title, '概要' %>：<br />
+    <%= f.label :title, '概要' %>：
     <%= f.text_field :title %>
   </div>
   <div class="field">
@@ -20,13 +21,13 @@
     <%= f.text_area :description %>
   </div>
   <div class="field">
-    <%= f.label :priority ,'優先順位'%><br />
+    <%= f.label :priority ,'優先順位'%>:
     いつでも:<%= f.radio_button :priority,"1" %>|
     やれれば:<%= f.radio_button :priority,"2" %>|
     なるべく早く:<%= f.radio_button :priority,"3" %>
   </div>
   <div class="field">
-    <%= f.label :status ,'進捗'%><br />
+    <%= f.label :status ,'進捗'%>:
     未着手:<%= f.radio_button :status,"1" %>|
     今やってる:<%= f.radio_button :status,"2" %>|
     完了:<%= f.radio_button :status,"3" %>
@@ -34,4 +35,5 @@
   <div class="actions">
     <%= f.submit %>
   </div>
+</div>
 <% end %>

@@ -153,7 +153,6 @@
 }
 
 .loginInfo_menu {
-	text-align: left;
 	font-weight: bold;
 	color: #3725A8;
     width: 100%;
@@ -165,7 +164,14 @@
 	color: #3725A8;
     width: 100%;
 }
-
+.task_form {
+    font-weight: bold;
+    font-size: 12pt;
+    background-color: #FFFFDB;
+    border: 1px solid #333333;
+    width: 500px;
+	margin: 3px;
+}
 .header_info{
     text-align: center;
 	font-weight: bold;

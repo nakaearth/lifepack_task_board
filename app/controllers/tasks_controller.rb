@@ -3,10 +3,7 @@ class TasksController < ApplicationController
   # GET /tasks
   # GET /tasks.xml
   def index
-    if session[:login_user] == nil
-      redirect_to :controller=>'sessions'
-    end
-    @login_user = session[:login_user]
+    @login_user =set_user
     @todo_tasks = Task.where(["user_id=?",@login_user]).todo.latest
     @doing_tasks = Task.where(["user_id=?",@login_user]).doing.latest
     @done_tasks = Task.where(["user_id=?",@login_user]).done.latest
@@ -47,10 +44,7 @@ class TasksController < ApplicationController
   # GET /tasks/1
   # GET /tasks/1.xml
   def show
-    if session[:login_user] == nil
-      redirect_to :controller=>'sessions'
-    end
-    @login_user = session[:login_user]
+    @login_user =set_user
     @task = Task.find(params[:id])
 
     respond_to do |format|
@@ -62,14 +56,10 @@ class TasksController < ApplicationController
   # GET /tasks/new
   # GET /tasks/new.xml
   def new
-    if session[:login_user] == nil
-      redirect_to :controller=>'sessions'
-    end
-    @login_user = session[:login_user]
+    @login_user =set_user
     @task = Task.new
     @task.status = 1
     @task.priority = 1
-    set_login_user
     respond_to do |format|
       format.html # new.html.erb
       format.xml  { render :xml => @task }
@@ -78,21 +68,14 @@ class TasksController < ApplicationController
 
   # GET /tasks/1/edit
   def edit
-    if session[:login_user] == nil
-      redirect_to :controller=>'sessions'
-    end
-    @login_user = session[:login_user]
+    @login_user =set_user
     @task = Task.find(params[:id])
-    set_login_user
   end
 
   # POST /tasks
   # POST /tasks.xml
   def create
-    if session[:login_user] == nil
-      redirect_to :controller=>'sessions'
-    end
-    @login_user = session[:login_user]
+    @login_user =set_user
     @task = Task.new(params[:task])
     @task.user_id = @login_user
     respond_to do |format|
@@ -109,10 +92,7 @@ class TasksController < ApplicationController
   # PUT /tasks/1
   # PUT /tasks/1.xml
   def update
-    if session[:login_user] == nil
-      redirect_to :controller=>'sessions'
-    end
-    @login_user = session[:login_user]
+    @login_user =set_user
     @task = Task.find(params[:id])
     respond_to do |format|
       if @task.update_attributes(params[:task])
@@ -128,10 +108,7 @@ class TasksController < ApplicationController
   # DELETE /tasks/1
   # DELETE /tasks/1.xml
   def delete_task
-    if session[:login_user] == nil
-      redirect_to :controller=>'sessions'
-    end
-    @login_user = session[:login_user]
+    @login_user =set_user
     @task = Task.find(params[:id])
     @task.destroy
     render :update do |page|
@@ -141,18 +118,6 @@ class TasksController < ApplicationController
   end
 
   def show_calendar
-    if session[:login_user] == nil
-      redirect_to :controller=>'sessions'
-    end
-    @login_user = session[:login_user]
+    @login_user =set_user
   end
-
-  private
-  def set_login_user
-    if session[:login_user] == nil
-      redirect_to :controller=>'sessions'
-    end
-    @login_user = session[:login_user]
- end
-
 end

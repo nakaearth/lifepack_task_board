@@ -16,4 +16,11 @@ class ApplicationController < ActionController::Base
     authenticate!
   end
 
+  def set_user
+    if session[:login_user] == nil
+      redirect_to :controller=>'sessions'
+    end
+    @login_user = session[:login_user]
+  end
+
 end
