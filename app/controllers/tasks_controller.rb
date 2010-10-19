@@ -77,7 +77,7 @@ class TasksController < ApplicationController
   def create
     @login_user =set_user
     @task = Task.new(params[:task])
-    @task.user_id = @login_user
+    @task.user_id = @login_user.id
     respond_to do |format|
       if @task.save
         format.html { redirect_to(@task, :notice => 'Task was successfully created.') }

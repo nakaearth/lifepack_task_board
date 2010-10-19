@@ -236,5 +236,12 @@
 	width: 90%;
 	height: 700px;
 	overflow: visible;
-
+}
+.group_form {
+    font-weight: bold;
+    font-size: 12pt;
+    background-color: #FFFFDB;
+    border: 1px solid #333333;
+    width: 600px;
+	margin: 3px;
 }
