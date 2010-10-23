@@ -7,7 +7,7 @@ LifepackTaskRecord::Application.routes.draw do
       get :unauthenticated,:on=>:member
   end
   resources :users, :only => [:show,:new,:edit,:create,:update,:destroy]
-  resources :group, :only => [:index,:show,:new,:edit,:create,:update,:destroy]
+  resources :groups, :only => [:index,:show,:new,:edit,:create,:update,:destroy]
   
   # The priority is based upon order of creation:
   # first created -> highest priority.
