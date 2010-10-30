@@ -1,0 +1,2 @@
+module MoTasksHelper
+end

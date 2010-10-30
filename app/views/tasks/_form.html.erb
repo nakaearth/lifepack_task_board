@@ -32,6 +32,10 @@
     今やってる:<%= f.radio_button :status,"2" %>|
     完了:<%= f.radio_button :status,"3" %>
   </div>
+  <div class="field">
+    <%= f.label :group_id ,'グループ設定'%>:
+    <%=select 'group',"group_id", @belong_groups.collect{|g|[g.name,g.id]} %>
+  </div>
   <div class="actions">
     <%= f.submit %>
   </div>

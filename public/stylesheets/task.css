@@ -157,13 +157,6 @@
 	color: #3725A8;
     width: 100%;
 }
-
-.user_info_form {
-    text-align: center;
-	font-weight: bold;
-	color: #3725A8;
-    width: 100%;
-}
 .task_form {
     font-weight: bold;
     font-size: 12pt;
@@ -187,6 +180,13 @@
 	font-weight: bold;
 	color: #3725A8;
     width: 100%;
+}
+
+.profile_detail {
+    text-align: left;
+	font-weight: bold;
+	color: #4B0082;
+    width: 800px;
 }
 
 .user_info_form{

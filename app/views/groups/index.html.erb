@@ -1,18 +1,4 @@
 <p id="notice"><%= notice %></p>
-<div id="loginInfo" class="loginInfo_menu">
-      <table>
-        <tr>
-          <td class="menu_text">
-            [<%=@login_user.name %>]さん、こんにちは。&nbsp;&nbsp;
-          </td><td class="menu_text2">
-	        <%= link_to '新規グループ', new_group_path %> &nbsp;&nbsp;|
-            <%= link_to '他のグループに所属する(未実装)', new_group_path %>
-        </td></tr>
-      </table>
-</div>
-
-<hr>
-
 <div class="sub_header_info">グループ一覧</div>
 <table>
   <tr>
@@ -35,3 +21,6 @@
 </table>
 
 <br />
+
+<%= link_to '新規グループ', new_group_path %>|
+<%= link_to 'ユーザ情報設定へ',  :controller =>'users', :action => 'show' %>

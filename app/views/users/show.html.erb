@@ -1,5 +1,6 @@
 <p id="notice"><%= notice %></p>
 
+<div id="profile" class="profile_detail">
 <p>
   <b>名前:</b>
   <%= @user.name %>
@@ -12,3 +13,12 @@
   <b>Email:</b>
   <%= @user.email %>
 </p>
+<p>
+  <b>所属グループ:</b><br>
+  <% @belong_groups.each do |group|%>
+  <%=group.name %>:<%=group.description %><br>
+  <% end %>
+</p>
+</div>
+
+

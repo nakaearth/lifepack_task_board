@@ -5,7 +5,7 @@ class GroupsController < ApplicationController
       redirect_to :controller=>'sessions'
     end
     @login_user =set_user
-    @groups = Group.where(["user_id=?",@login_user]).latest
+    @groups = Group.where(["owner_id=?",@login_user]).latest
     #respond_to do |format|
     #  format.html # index.html.erb
     #  format.xml  { render :xml => @groups }
@@ -51,9 +51,5 @@ class GroupsController < ApplicationController
   def show
    @login_user =set_user
    @group=Group.find(params[:id])
-  end
-
-  def list_other_group
-
   end
 end

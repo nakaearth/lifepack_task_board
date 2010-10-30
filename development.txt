@@ -208,6 +208,15 @@ gem install moro-miso（日本語でステップが×）
 http://gihyo.jp/dev/serial/01/ruby/0022
 
 ●モバイル
+Rails3で使うなら
+http://github.com/jpmobile/jpmobile
+インストールは
+＞rails plugin install git://github.com/jpmobile/jpmobile.git
+＞ails plugin install git://github.com/jpmobile/jpmobile-ipaddresses.git
+＞rails plugin install git://github.com/jpmobile/jpmobile-terminfo.git
+
+36%がクッキーを保存しない（ほとんどDoCoMo）
+
 http://jpmobile-rails.org/
 http://rdoc.info/projects/darashi/jpmobile
 http://recommend.kbmj.com/recommend/link_without_param/197/?t=history1
@@ -284,6 +293,18 @@ http://d.hatena.ne.jp/zariganitosh/20070713/1184302281
 
 ・天気
 http://www.weather.com/
+
+○Postgresを入れて地図APを
+>yum install postgresql-tcl postgresql-server postgresql-contrib postgresql
+・パスワードを変更
+>sudo passwd postgres
+・DBを作成
+>sudo su postgres
+>createdb lifepack_task_record_production
+>createdb lifepack_task_record_development
+
+
+
 
 ---------------------過去の情報--------------------
 

@@ -1,4 +1,5 @@
 class TasksController < ApplicationController
+  before_filter :redirect_if_mobile
   respond_to :html,:xml
   # GET /tasks
   # GET /tasks.xml
@@ -60,6 +61,7 @@ class TasksController < ApplicationController
     @task = Task.new
     @task.status = 1
     @task.priority = 1
+    @belong_groups = Group.select_item_groups(@login_user.id)
     respond_to do |format|
       format.html # new.html.erb
       format.xml  { render :xml => @task }
@@ -70,6 +72,7 @@ class TasksController < ApplicationController
   def edit
     @login_user =set_user
     @task = Task.find(params[:id])
+    @belong_groups = Group.select_item_groups(@login_user.id)
   end
 
   # POST /tasks
@@ -120,4 +123,18 @@ class TasksController < ApplicationController
   def show_calendar
     @login_user =set_user
   end
+
+  private
+  def redirect_if_mobile
+    if request.mobile?
+        pa = params.dup
+        pa[:controller] = '/mo_tasks'
+        redirect_to pa
+#    elsif request.smart_phone?
+#        pa = params.dup
+#        pa[:controller] = "/smart_phone"
+#        redirect_to pa
+    end
+  end
+
 end
