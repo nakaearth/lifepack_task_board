@@ -1,6 +1,7 @@
 LifepackTaskRecord::Application.routes.draw do
   resources :tasks ,:only =>[:index,:show,:new,:edit,:create,:update] do
     delete :delete_task, :on=>:member
+    #post :select_group_task, :on=>:collection
     put :show_calendar, :on =>:member
   end
   resources :sessions ,:only =>[:index,:new,:create,:destroy] do

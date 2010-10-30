@@ -5,11 +5,16 @@ class TasksController < ApplicationController
   # GET /tasks.xml
   def index
     @login_user =set_user
+    group_id = params[:group_id]
     @todo_tasks = Task.where(["user_id=?",@login_user]).todo.latest
     @doing_tasks = Task.where(["user_id=?",@login_user]).doing.latest
     @done_tasks = Task.where(["user_id=?",@login_user]).done.latest
+    if group_id != nil
+       @todo_tasks.where(["group_id",group_id])
+       @doing_tasks.where(["group_id",group_id])
+       @done_tasks.where(["group_id",group_id])
+    end
   end
-
 
   def change_status_todo
     @task = Task.find(params[:id])
