@@ -1,0 +1,14 @@
+## YAML Template.
+ja:
+  activerecord:
+    attributes:
+      user:
+        name: ログイン名(ユーザ名）
+        password: パスワード
+        email: メールアドレス
+      task:
+        title: タスクタイトル
+        description: 概要
+        priority: 優先順位
+        status: タスクの状態
+
