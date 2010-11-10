@@ -5,7 +5,12 @@ gem 'rails', '3.0.0.rc2'
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
-gem 'mysql2'
+group :production do
+  gem 'mysql2'
+end
+group :development, :test do
+  gem 'sqlite3-ruby', :require => 'sqlite3'
+end
 gem 'rails_warden'
 gem 'warden-openid'
 

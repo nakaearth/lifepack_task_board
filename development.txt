@@ -212,7 +212,7 @@ Rails3で使うなら
 http://github.com/jpmobile/jpmobile
 インストールは
 ＞rails plugin install git://github.com/jpmobile/jpmobile.git
-＞ails plugin install git://github.com/jpmobile/jpmobile-ipaddresses.git
+＞rails plugin install git://github.com/jpmobile/jpmobile-ipaddresses.git
 ＞rails plugin install git://github.com/jpmobile/jpmobile-terminfo.git
 
 36%がクッキーを保存しない（ほとんどDoCoMo）

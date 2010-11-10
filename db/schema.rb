@@ -10,13 +10,37 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100828075415) do
+ActiveRecord::Schema.define(:version => 20101030023744) do
+
+  create_table "groups", :force => true do |t|
+    t.string   "name"
+    t.integer  "owner_id"
+    t.string   "description"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "user_id",     :default => 0, :null => false
+  end
+
+  add_index "groups", ["user_id", "created_at"], :name => "index_groups_on_user_id_and_created_at"
 
   create_table "tasks", :force => true do |t|
     t.string   "title"
     t.text     "description"
     t.integer  "priority"
     t.integer  "status"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "user_id",     :default => 0, :null => false
+    t.integer  "group_id",    :default => 0, :null => false
+  end
+
+  add_index "tasks", ["group_id", "user_id", "created_at"], :name => "index_tasks_on_group_id_and_user_id_and_created_at"
+  add_index "tasks", ["user_id", "status", "updated_at"], :name => "index_tasks_on_user_id_and_status_and_updated_at"
+
+  create_table "users", :force => true do |t|
+    t.string   "name"
+    t.string   "password"
+    t.string   "email"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
