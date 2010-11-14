@@ -7,9 +7,20 @@
   <%= csrf_meta_tag %>
 </head>
 <body>
-<%= render 'common/header' %>
-<%= render 'common/menu' %>
+ <% if request.mobile? %>
+  <%= render 'common/header_mobile' %>
+  <%= render 'common/menu_mobile' %>
+<%else %>
+  <%= render 'common/header' %>
+  <%= render 'common/menu' %>
+<% end %>
+
 <%= yield %>
-<%= render 'common/footer' %>
+
+<% if request.mobile? %>
+  <%= render 'common/footer_mobile' %>
+<% else %>
+  <%= render 'common/footer' %>
+<% end %>
 </body>
 </html>

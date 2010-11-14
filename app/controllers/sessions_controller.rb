@@ -35,4 +35,17 @@ class SessionsController < ApplicationController
     @login_form = LoginForm.new params[:login_form]
     redirect_to new_session_path
   end
+
+  private
+  def redirect_if_mobile
+    if request.mobile?
+        pa = params.dup
+        pa[:controller] = '/mo_sessions'
+        redirect_to pa
+#    elsif request.smart_phone?
+#        pa = params.dup
+#        pa[:controller] = "/smart_phone"
+#        redirect_to pa
+    end
+  end
 end

@@ -1,13 +1,11 @@
 <div class="user_info_form">
   <%= form_for(@user) do |f| %>
     <% if @user.errors.any? %>
-    <div id="error_explanation">
+    <div id="user_info_form">
       <h2><%= pluralize(@user.errors.count, "error") %>入力エラーです。</h2>
-      <ul>
       <% @user.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
+      <%= msg %><br>
       <% end %>
-      </ul>
     </div>
     <% end %>
 
