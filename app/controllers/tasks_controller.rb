@@ -1,5 +1,5 @@
 class TasksController < ApplicationController
-  before_filter :redirect_if_mobile
+  #before_filter :redirect_if_mobile
   respond_to :html,:xml
   # GET /tasks
   # GET /tasks.xml
@@ -129,17 +129,17 @@ class TasksController < ApplicationController
     @login_user =set_user
   end
 
-  private
-  def redirect_if_mobile
-    if request.mobile?
-        pa = params.dup
-        pa[:controller] = '/mo_tasks'
-        redirect_to pa
+#  private
+#  def redirect_if_mobile
+#    if request.mobile?
+#        pa = params.dup
+#        pa[:controller] = '/mo_tasks'
+#        redirect_to pa
 #    elsif request.smart_phone?
 #        pa = params.dup
 #        pa[:controller] = "/smart_phone"
 #        redirect_to pa
-    end
-  end
+#    end
+#  end
 
 end

@@ -1,10 +1,12 @@
+<% if @login_user != nil  %>
 <table>
   <tr><td class="menu_text">
     <%= link_to 'タスク一欄へ',  :controller =>'tasks', :action => 'index' %> &nbsp;&nbsp;|&nbsp;&nbsp;
-    <% if @login_user != nil  %>
+    
     <%= link_to 'プロフィール設定' ,:controller=>'users',:action=>'show',:id=>@login_user.id %> &nbsp;&nbsp;|&nbsp;&nbsp;
-    <% end %>
+
     <%= link_to 'グループ設定', :controller =>'groups', :action => 'index' %> &nbsp;&nbsp;|&nbsp;&nbsp;
   </td></tr>
 </table>
 <hr>
+<% end %>
