@@ -15,6 +15,13 @@ gem 'rails_warden'
 gem 'warden-openid'
 gem 'nokogiri'
 gem 'capistrano'
+group :development, :test do
+   gem 'webrat'
+end
+group :test, :development do
+  gem "rspec-rails", "~> 2.0.1"
+end
+gem "capybara"
 
 #gem 'rails', '3.0.0.rc2'
 # Use unicorn as the web server

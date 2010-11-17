@@ -86,6 +86,7 @@ class TasksController < ApplicationController
     @login_user =set_user
     @task = Task.new(params[:task])
     @task.user_id = @login_user.id
+    @belong_groups = Group.select_item_groups(@login_user.id)
     respond_to do |format|
       if @task.save
         format.html { redirect_to(@task, :notice => 'Task was successfully created.') }
@@ -102,6 +103,7 @@ class TasksController < ApplicationController
   def update
     @login_user =set_user
     @task = Task.find(params[:id])
+    @belong_groups = Group.select_item_groups(@login_user.id)
     respond_to do |format|
       if @task.update_attributes(params[:task])
         format.html { redirect_to(@task, :notice => 'Task was successfully updated.') }
