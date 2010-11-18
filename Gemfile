@@ -15,11 +15,15 @@ gem 'rails_warden'
 gem 'warden-openid'
 gem 'nokogiri'
 gem 'capistrano'
+gem 'will_paginate'
 group :development, :test do
    gem 'webrat'
 end
 group :test, :development do
-  gem "rspec-rails", "~> 2.0.1"
+  gem 'rspec-rails', :group => :development
+  gem 'rspec-integration'
+  gem 'capybara'
+  gem 'cucumber-rails'
 end
 gem "capybara"
 
