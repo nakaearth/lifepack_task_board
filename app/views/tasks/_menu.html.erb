@@ -14,13 +14,13 @@
   <tr>
 	<td class="menu_text">
 	    　&nbsp;
-	     <%= link_to 'TODO項目を表示' ,:action=>'index' %>
+	     <%= link_to 'タスク一覧へ', tasks_path %>
          &nbsp;&nbsp;
         &nbsp;&nbsp; |
         <%= link_to '新規タスク追加', new_task_path %>
          &nbsp;&nbsp; |
         &nbsp;&nbsp;
-	    <%= link_to '過去の振り返り', :action =>'show_calendar' %>
+	    <%= link_to '過去の振り返り', :action =>'past_task_lists' %>
         &nbsp;&nbsp; 
 	</td>
   </tr>

@@ -245,3 +245,13 @@
     width: 600px;
 	margin: 3px;
 }
+.past_task {
+    text-align: left;
+	font-weight: bold;
+	border: 2px solid #333333;
+	background-color: #FFFFFF;
+	vertical-align: text-top;
+	width: 90%;
+	height: 700px;
+	overflow: visible;
+}

@@ -127,8 +127,9 @@ class TasksController < ApplicationController
     end
   end
 
-  def show_calendar
+  def past_task_lists
     @login_user =set_user
+     @tasks = Task.where(["user_id=?",@login_user]).latest
   end
 
 #  private

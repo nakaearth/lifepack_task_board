@@ -1,6 +1,6 @@
 source 'http://rubygems.org'
 
-gem 'rails', '3.0.1'
+gem 'rails', '3.0.3'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
@@ -13,19 +13,20 @@ group :development, :test do
 end
 gem 'rails_warden'
 gem 'warden-openid'
-gem 'nokogiri'
 gem 'capistrano'
 gem 'will_paginate'
-group :development, :test do
-   gem 'webrat'
-end
-group :test, :development do
-  gem 'rspec-rails', :group => :development
-  gem 'rspec-integration'
-  gem 'capybara'
-  gem 'cucumber-rails'
-end
-gem "capybara"
+
+#group :development, :test do
+#   gem 'webrat'
+#end
+#group :test, :development do
+#  gem 'rspec-rails', :group => :development
+#  gem 'rspec-integration'
+#  gem 'capybara'
+#  gem 'cucumber-rails'
+#gem "capybara"
+#end
+
 
 #gem 'rails', '3.0.0.rc2'
 # Use unicorn as the web server

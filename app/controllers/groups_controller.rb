@@ -6,6 +6,7 @@ class GroupsController < ApplicationController
     end
     @login_user =set_user
     @groups = Group.where(["owner_id=?",@login_user]).latest
+    @join_groups = Group.where(["user_id=?",@login_user]).latest
     #respond_to do |format|
     #  format.html # index.html.erb
     #  format.xml  { render :xml => @groups }
@@ -25,6 +26,7 @@ class GroupsController < ApplicationController
     @login_user =set_user
     @group = Group.new(params[:group])
     @group.user_id = @login_user.id
+    @group.owner_id = @login_user.id
     respond_to do |format|
       if @group.save
         format.html { redirect_to(@group, :notice => 'Task was successfully created.') }
