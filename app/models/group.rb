@@ -1,6 +1,7 @@
 class Group < ActiveRecord::Base
   scope :latest ,order('created_at desc')
   belongs_to :user
+  
   def self.your_group(id)
     @groups =Group.where('user_id=?',id)
     if @groups==nil

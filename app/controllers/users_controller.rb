@@ -13,7 +13,8 @@ class UsersController < ApplicationController
   # GET /users/1
   # GET /users/1.xml
   def show
-    @user = User.find(params[:id])
+    @login_user = set_user
+    @user = User.find(@login_user.id)
     @belong_groups = Group.your_group(@user.id)
     respond_to do |format|
       format.html # show.html.erb
@@ -35,13 +36,13 @@ class UsersController < ApplicationController
   # GET /users/1/edit
   def edit
     @user = User.find(params[:id])
+    @belong_groups = Group.your_group(params[:id])
   end
 
   # POST /users
   # POST /users.xml
   def create
     @user = User.new(params[:user])
-
     respond_to do |format|
       if @user.save
         format.html { redirect_to(@user, :notice => 'User was successfully created.') }
@@ -57,7 +58,7 @@ class UsersController < ApplicationController
   # PUT /users/1.xml
   def update
     @user = User.find(params[:id])
-
+    @belong_groups = Group.your_group(params[:id])
     respond_to do |format|
       if @user.update_attributes(params[:user])
         format.html { redirect_to(@user, :notice => 'User was successfully updated.') }

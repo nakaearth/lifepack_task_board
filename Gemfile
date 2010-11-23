@@ -15,6 +15,7 @@ gem 'rails_warden'
 gem 'warden-openid'
 gem 'capistrano'
 gem 'will_paginate'
+gem 'carrierwave'
 
 #group :development, :test do
 #   gem 'webrat'

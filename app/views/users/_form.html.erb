@@ -21,6 +21,12 @@
     <%= f.label :email , 'メールアドレス'%><br />
     <%= f.text_field :email %>
   </div>
+<div class="field">
+<b>所属グループ:</b><br>
+  <% @belong_groups.each do |group|%>
+  <%=group.name %>:<%=group.description %><br>
+  <% end %>
+</div>
   <div class="actions">
     <%= f.submit %>
   </div>

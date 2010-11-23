@@ -1,14 +1,16 @@
 <p id="notice"><%= notice %></p>
+
 <table>
   <tr><td class="menu_text">
+  <% if @login_user == nil  %>
     <%= link_to 'ログイン',  :controller =>'sessions', :action => 'index' %> &nbsp;&nbsp;|&nbsp;&nbsp;
-    
     <%= link_to 'プロフィール設定' ,:controller=>'users',:action=>'show',:id=>@login_user.id %> &nbsp;&nbsp;|&nbsp;&nbsp;
-
     <%= link_to 'グループ設定', :controller =>'groups', :action => 'index' %> &nbsp;&nbsp;|&nbsp;&nbsp;
+  <% else %>
+    <%= link_to 'プロフィール編集' ,:controller=>'users',:action=>'edit',:id=>@login_user.id %> &nbsp;&nbsp;
+  <% end %>
   </td></tr>
 </table>
-
 <div id="profile" class="profile_detail">
 <p>
   <b>名前:</b>
