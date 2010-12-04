@@ -19,7 +19,7 @@ MySql(Rails 2.2から個別に入れないとだめになた)
 >yum install mysql-devel
 >gem install mysql -- --with-mysql-config=/usr/bin/mysql_config
 
-1.プラグイン設定
+1.プラグイン設定(Rails2)
 >sudo gem install log4r
 >sudo gem install magic_multi_connections
 >sudo gem install capistrano

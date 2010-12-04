@@ -2,6 +2,9 @@
 http://guides.rubyonrails.org/
 を参照
 
+■画像アップロード
+https://github.com/jnicklas/carrierwave
+rails generate uploader Avatar
 
 
 ■f.～の場合

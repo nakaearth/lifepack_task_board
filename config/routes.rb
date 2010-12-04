@@ -6,7 +6,7 @@ LifepackTaskRecord::Application.routes.draw do
   resources :sessions ,:only =>[:index,:new,:create,:destroy] do
       get :unauthenticated,:on=>:member
   end
-  resources :users, :only => [:show,:new,:edit,:create,:update,:destroy]
+  resources :users, :only => [:show,:new,:edit,:create,:update,:destroy] 
   resources :groups, :only => [:index,:show,:new,:edit,:create,:update,:destroy]
   
   # The priority is based upon order of creation:
