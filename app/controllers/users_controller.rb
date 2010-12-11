@@ -58,12 +58,17 @@ class UsersController < ApplicationController
   # PUT /users/1.xml
   def update
     @user = User.find(params[:id])
-    @user.avatar = params[:file]
+    #@user.avatar = params[:file]
     @belong_groups = Group.your_group(params[:id])
     if @user.save!
     #if @user.update_attributes(params[:user])
       @uploader = AvatarUploader.new
-      @uploader.store!(@user.avatar.filename)
+      @uploader.store!(@user.avatar.current_path)
+      p 'UPLOAD FILE'
+      p @user.avatar
+      p @user.avatar.current_path
+      p @user.avatar.url
+      p @user.avatar.filename
       flash[:notice] = "Successfully updated user."
        redirect_to @user
     else

@@ -1,26 +1,26 @@
 # encoding: utf-8
 
 class AvatarUploader < CarrierWave::Uploader::Base
-
+  storage :file
   # Include RMagick or ImageScience support:
   # include CarrierWave::RMagick
   # include CarrierWave::ImageScience
   permissions 0777
   
   # Choose what kind of storage to use for this uploader:
-  storage :file
+  
   # storage :s3
 
   # Override the directory where uploaded files will be stored.
   # This is a sensible default for uploaders that are meant to be mounted:
   def store_dir
     #"uploads/#{model.class.to_s.underscore}/#{mounted_as}/#{model.id}"
-    "public/profile_image"
+    "/data/profile_image"
   end
 
   # Provide a default URL as a default if there hasn't been a file uploaded:
   def default_url
-     "public/prifile_image" + [version_name, "default.png"].compact.join('_')
+     "/data/prifile_image" + [version_name, "default.png"].compact.join('_')
   end
 
   # Process files as they are uploaded:

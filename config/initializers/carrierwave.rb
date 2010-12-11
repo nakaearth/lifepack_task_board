@@ -2,5 +2,5 @@
 # and open the template in the editor.
 
  CarrierWave.configure do |config|
-  config.root = File.join(Rails.root, 'public/profile_image')
+  config.root = File.join('/data', 'profile_image')
 end
