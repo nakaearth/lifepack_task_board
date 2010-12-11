@@ -14,19 +14,23 @@ class UsersController < ApplicationController
   # GET /users/1.xml
   def show
     @login_user = set_user
-    @user = User.find(@login_user.id)
-    @belong_groups = Group.your_group(@user.id)
-    respond_to do |format|
-      format.html # show.html.erb
-      format.xml  { render :xml => @user }
+    if @login_user == nil
+      @user = User.find(params[:id])
+    else
+      @user = User.find(@login_user.id)
     end
+    @belong_groups = Group.your_group(@user.id)
+#    respond_to do |format|
+#      format.html # show.html.erb
+#      format.xml  { render :xml => @user }
+#    end
   end
 
   # GET /users/new
   # GET /users/new.xml
   def new
     @user = User.new
-
+    @belong_groups = Group.your_group(@user.id)
     respond_to do |format|
       format.html # new.html.erb
       format.xml  { render :xml => @user }

@@ -1,8 +1,7 @@
-携帯は非対応です。
+<!-- 携帯は非対応です。-->
 
-<!--
 <div class="login_form">
-<%= form_for @login_form, :url=>{:controller=>'sessions',:action=>'create'},:html=>{:method =>:post} do |f| %>
+<%= form_for @login_form, :url=>{:controller=>'mo_session',:action=>'create'},:html=>{:method =>:post} do |f| %>
  
  <div class="field">
     <%= f.label :name, 'ユーザ名' %>：<br />
@@ -19,5 +18,3 @@
 <br>
 <%= link_to '新規登録',  :controller =>'users', :action => 'new' %>
 </div>
-
--->

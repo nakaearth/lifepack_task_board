@@ -1,4 +1,8 @@
 LifepackTaskRecord::Application.routes.draw do
+  get "mo_session/index"
+
+  get "mo_session/create"
+
   resources :tasks ,:only =>[:index,:show,:new,:edit,:create,:update] do
     delete :delete_task, :on=>:member
     get :past_task_lists, :on=>:collection
