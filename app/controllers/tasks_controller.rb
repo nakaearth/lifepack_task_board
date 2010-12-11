@@ -8,7 +8,7 @@ class TasksController < ApplicationController
     group_id = params[:group_id]
     @todo_tasks = Task.where(["user_id=?",@login_user]).todo.latest
     @doing_tasks = Task.where(["user_id=?",@login_user]).doing.latest
-    @done_tasks = Task.where(["user_id=?",@login_user]).done.latest
+    @done_tasks = Task.where(["user_id=?",@login_user]).done.today_done.latest
     if group_id != nil
        @todo_tasks.where(["group_id",group_id])
        @doing_tasks.where(["group_id",group_id])
